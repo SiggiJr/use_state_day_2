@@ -1,0 +1,14 @@
+.movie_item{
+  background-color: rgb(37, 37, 37);
+  color: #fff;
+  text-align: center;
+  .genre{
+    color: gray;
+    font-size: .8rem;
+    line-height: 7px;
+    &:nth-of-type(1){
+        margin-top: 50px;
+        color: red;
+      }
+  }
+}
