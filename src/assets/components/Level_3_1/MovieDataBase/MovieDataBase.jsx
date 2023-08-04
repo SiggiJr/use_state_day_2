@@ -7,7 +7,7 @@ import { useState } from 'react';
 const MovieDataBase = () => {
   
   const [moviesDatabase, setMoviesDatabase] = useState([...movies])
-  const [movieSerach, setMovieSearch] = useState("");
+  const [movieSearch, setMovieSearch] = useState("");
 
   const sortByDateAscending = () => {
     setMoviesDatabase(prevDatabase => [...prevDatabase].sort((a, b) => a.year - b.year))
@@ -48,11 +48,7 @@ const MovieDataBase = () => {
   const searchForMovies = (event) => {
     setMovieSearch(prevMovieSearch => prevMovieSearch = event.target.value)
     const searchKey = event.target.value.trim().toLowerCase();
-    if (searchKey === "") {
-      setMoviesDatabase(prevDatabase => prevDatabase = movies)
-      return;
-    }
-    setMoviesDatabase(prevDatabase => [...prevDatabase].filter(movie => movie.title.toLowerCase().includes(searchKey)))
+    setMoviesDatabase([...movies].filter(movie => movie.title.toLowerCase().includes(searchKey)))
   }
 
   return ( 
@@ -63,7 +59,7 @@ const MovieDataBase = () => {
   <button onClick={sortByRating}>Best Rate</button>
   <button onClick={sortByAtoZ}>A-Z</button>
   <button onClick={sortByZtoA}>Z-A</button>
-  <input type="text" onChange={searchForMovies} value={movieSerach}/>
+  <input type="text" onChange={searchForMovies} value={movieSearch}/>
 </div>
 <div className='movies_container'>
   {moviesDatabase.map(movie => <MovieItem 
