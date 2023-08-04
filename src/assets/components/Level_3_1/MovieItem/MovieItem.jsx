@@ -5,12 +5,12 @@ const MovieItem = (props) => {
   return ( 
     <>
     <article className='movie_item'>
-      <p>{props.title}</p>
-      <p>{props.year}</p>
-      <p>{props.director}</p>
-      <p>{props.duration}</p>
-      <p>{props.rate}</p>
-      {props.genre.map(genre => <p className='genre' key={uuidv4()}>{genre}</p>)}
+      <p>{props.movie.title}</p>
+      <p>{props.movie.year}</p>
+      <p>{props.movie.director}</p>
+      <p>{props.movie.duration}</p>
+      <p>{props.movie.rate}</p>
+      {props.movie.genre.map(genre => <p className='genre' key={uuidv4()}>{genre}</p>)}
     </article>
     </>
 );
